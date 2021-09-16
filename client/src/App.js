@@ -3,24 +3,28 @@ import { Container } from 'react-bootstrap';
 import Home from './components/shared/Home';
 import About from './components/shared/About';
 import Nomatch from './components/shared/Nomatch';
+import MainNavbar from './components/shared/MainNavbar';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
-import MainNavbar from './components/shared/MainNavbar';
+import FetchUser from './components/auth/FetchUser';
+import ProtectedRoute from './components/auth/ProtectedRoute';
 import Blogs from './components/blogs/Blogs';
 
 const App = () => (
   <>
     <MainNavbar />
-    <Container>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/blogs" component={Blogs} />
-        <Route component={Nomatch} />
-      </Switch>
-    </Container>
+    <FetchUser>
+      <Container>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Register} />
+          <ProtectedRoute exact path="/blogs" component={Blogs} />
+          <Route component={Nomatch} />
+        </Switch>
+      </Container>
+    </FetchUser>
   </>
 )
 
