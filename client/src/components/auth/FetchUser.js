@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { AuthConsumer } from '../../providers/AuthProvider';
 
-const FetchUser = (authenticated, setUser, children) => {
+const FetchUser = ({authenticated, setUser, children}) => {
   const [loaded, setLoaded] = useState(false)
 
   useEffect( () =>{
