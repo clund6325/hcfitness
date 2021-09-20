@@ -40,7 +40,7 @@ const Register = ({ handleRegister, history }) => {
             onChange={(e) => setUser({...user, email: e.target.value})}
           />
         </Form.Group>
-        <Form.Group controlId="formBasicImage">
+        {/* <Form.Group controlId="formBasicImage">
           <Form.Label>Image</Form.Label>
           <Form.Control
             type="text"
@@ -49,7 +49,7 @@ const Register = ({ handleRegister, history }) => {
             value={user.image}
             onChange={(e) => setUser({...user, image: e.target.value})}
           />
-        </Form.Group>
+        </Form.Group> */}
         <Form.Group controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
