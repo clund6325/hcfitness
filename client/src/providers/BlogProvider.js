@@ -33,7 +33,7 @@ const BlogProvider = ({ children }) => {
           }
           return b
         })
-        setBlogs(updateBlogs)
+        setBlogs(updatedBlogs)
         history.push("/blogs")
       })
       .catch( err => console.log(err))
@@ -52,7 +52,7 @@ const BlogProvider = ({ children }) => {
 
   return(
     <BlogContext.Provider value={{
-      plans,
+      blogs,
       getAllBlogs: getAllBlogs,
       addBlog: addBlog,
       updateBlog: updateBlog,

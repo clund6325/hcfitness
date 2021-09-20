@@ -30,6 +30,16 @@ const Register = ({ handleRegister, history }) => {
             onChange={(e) => setUser({...user, name: e.target.value})}
           />
         </Form.Group>
+        <Form.Group controlId="formBasicEmail">
+          <Form.Label>Email</Form.Label>
+          <Form.Control 
+            type="email"
+            placeholder="enter email"
+            name="email"
+            value={user.email}
+            onChange={(e) => setUser({...user, email: e.target.value})}
+          />
+        </Form.Group>
         <Form.Group controlId="formBasicImage">
           <Form.Label>Image</Form.Label>
           <Form.Control
