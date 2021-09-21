@@ -9,6 +9,7 @@ import Register from './components/auth/Register';
 import FetchUser from './components/auth/FetchUser';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import Blogs from './components/blogs/Blogs';
+import BlogShow from './components/blogs/BlogShow';
 
 const App = () => (
   <>
@@ -21,6 +22,7 @@ const App = () => (
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <ProtectedRoute exact path="/blogs" component={Blogs} />
+          <ProtectedRoute exact path="/blogs/:id" component={BlogShow} />
           <Route component={Nomatch} />
         </Switch>
       </Container>

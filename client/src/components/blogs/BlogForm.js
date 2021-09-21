@@ -4,7 +4,7 @@ import { BlogConsumer } from '../../providers/BlogProvider';
 import { withRouter } from 'react-router-dom';
 
 const BlogForm = ({ addBlog, id, title, category, updateBlog, handleEditClose, history}) => {
-  const [blog, setBlog] = useState({ title: "", category: "" })
+  const [blog, setBlog] = useState({title: "", category: "" })
 
   useEffect( () => {
     if (id) {
@@ -15,14 +15,13 @@ const BlogForm = ({ addBlog, id, title, category, updateBlog, handleEditClose, h
   const handleSubmit = (e) => {
     e.preventDefault()
     setBlog({...blog})
-    if(id) {
+    if (id) {
       updateBlog(id, blog, history)
       handleEditClose()
-    }
-    else{
+    } else {
       addBlog(blog)
     }
-    setBlog({ title: "", category: "" })
+    setBlog({ title: "", category: ""})
   }
 
   return(
@@ -32,8 +31,8 @@ const BlogForm = ({ addBlog, id, title, category, updateBlog, handleEditClose, h
           <Form.Label>Title</Form.Label>
           <Form.Control
             type="text"
-            name="title"
             placeholder="title"
+            name="title"
             value={blog.title}
             onChange={(e) => setBlog({...blog, title: e.target.value})}
           />
@@ -54,4 +53,9 @@ const BlogForm = ({ addBlog, id, title, category, updateBlog, handleEditClose, h
   )
 }
 
-export default BlogForm;
+const ConnectedBlogForm = (props) => (
+  <BlogConsumer>
+    { value => <BlogForm {...props} {...value} />}
+  </BlogConsumer>
+)
+export default ConnectedBlogForm;

@@ -1,17 +1,24 @@
 import { Jumbotron } from 'react-bootstrap';
 import BlogList from './BlogList';
-import BlogForm from './BlogForm';
+// import BlogForm from './BlogForm';
+import { BlogConsumer } from '../../providers/BlogProvider';
 
-const Blogs = () => {
+const Blogs = (location) => {
   return(
     <>
       <Jumbotron>
         <h1>Blogs Page</h1>
       </Jumbotron>
       <BlogList/>
-      <BlogForm/>
+      {/* <BlogForm { ...location.state } /> */}
     </>
   )
 }
 
-export default Blogs;
+const ConnectedBlogs = (props) => (
+  <BlogConsumer>
+    { value => <Blogs {...props} {...value} /> }
+  </BlogConsumer>
+)
+
+export default ConnectedBlogs;
