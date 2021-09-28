@@ -1,6 +1,6 @@
 import { Jumbotron } from 'react-bootstrap';
 import BlogList from './BlogList';
-// import BlogForm from './BlogForm';
+import BlogForm from './BlogForm';
 import { BlogConsumer } from '../../providers/BlogProvider';
 
 const Blogs = (location) => {
@@ -10,7 +10,7 @@ const Blogs = (location) => {
         <h1>Blogs Page</h1>
       </Jumbotron>
       <BlogList/>
-      {/* <BlogForm { ...location.state } /> */}
+      <BlogForm { ...location.state } />
     </>
   )
 }

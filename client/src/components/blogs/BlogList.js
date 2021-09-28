@@ -15,9 +15,9 @@ const BlogList = ({ blogs, getAllBlogs }) => {
         { blogs.map( b =>
           <Link to={{
             pathname: `/blogs/${b.id}`,
-            state: {...b}
+            state: { ...b }
           }}>
-            <ListGroup.Item>Blog for {b.create_at}</ListGroup.Item>
+            <ListGroup.Item>Blog for {b.title}</ListGroup.Item>
           </Link>  
         )}
       </ListGroup>
@@ -27,7 +27,9 @@ const BlogList = ({ blogs, getAllBlogs }) => {
 
 const ConnectedBlogList = (props) => (
   <BlogConsumer>
-    { value => <BlogList {...props} {...value}/> }
+    { value =>
+      <BlogList {...props} {...value} />
+    }
   </BlogConsumer>
 )
 

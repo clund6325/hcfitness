@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Button, Form, InputGroup } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import { BlogConsumer } from '../../providers/BlogProvider';
 import { withRouter } from 'react-router-dom';
 
@@ -8,7 +8,7 @@ const BlogForm = ({ addBlog, id, title, category, updateBlog, handleEditClose, h
 
   useEffect( () => {
     if (id) {
-      setBlog({title, category})
+      setBlog({ title, category })
     }
   }, [])
 
@@ -21,7 +21,7 @@ const BlogForm = ({ addBlog, id, title, category, updateBlog, handleEditClose, h
     } else {
       addBlog(blog)
     }
-    setBlog({ title: "", category: ""})
+    setBlog({ title: "", category: "" })
   }
 
   return(
@@ -47,6 +47,16 @@ const BlogForm = ({ addBlog, id, title, category, updateBlog, handleEditClose, h
             onChange={(e) => setBlog({...blog, category: e.target.value})}
           />
         </Form.Group>
+        {/* <Form.Group controlId="FormBasicImage">
+          <Form.Label>Image</Form.Label>
+          <Form.Control 
+            type="image"
+            placeholder="image"
+            name="image"
+            value={blog.category}
+            onChange={(e) => setBlog({...blog, category: e.target.value})}
+          />
+        </Form.Group> */}
         <Button variant="primary" type="submit">Submit</Button>
       </Form>
     </>
@@ -58,4 +68,4 @@ const ConnectedBlogForm = (props) => (
     { value => <BlogForm {...props} {...value} />}
   </BlogConsumer>
 )
-export default ConnectedBlogForm;
+export default withRouter(ConnectedBlogForm);
