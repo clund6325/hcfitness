@@ -22,7 +22,7 @@ const MainNavbar = ({ user, handleLogout, location, history }) => {
     }
   }
   return(
-    <Navbar bd="dark" variant="dark">
+    <Navbar variant="outline-info">
       <Link to="/">
         <Navbar.Brand>Home</Navbar.Brand>
       </Link>

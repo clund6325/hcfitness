@@ -32,11 +32,12 @@ class Api::BlogsController < ApplicationController
   end
 
   private
+    def set_blog
+      @blog = current_user.blogs.find(params[:id])
+    end
+    
     def blog_params
       params.require(:blog).permit(:title, :category, :image)
     end
 
-    def set_blog
-      @blog = current_user.blogs.find(params[:id])
-    end
 end
