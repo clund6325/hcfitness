@@ -11,7 +11,7 @@ class Api::PostsController < ApplicationController
   end
 
   def create
-    @post = @blog.recipes.new(post_params)
+    @post = @blog.posts.new(post_params)
     if @post.save
       render json: @post
     else
@@ -42,6 +42,6 @@ class Api::PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title, :author, :image)
+      params.require(:post).permit(:title, :body, :author, :image)
     end
 end

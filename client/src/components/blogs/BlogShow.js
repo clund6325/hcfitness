@@ -2,6 +2,9 @@ import { Button, Modal } from 'react-bootstrap';
 import { useState } from 'react';
 import BlogForm from './BlogForm';
 import { BlogConsumer } from '../../providers/BlogProvider';
+import PostList from '../posts/PostList';
+import PostForm from '../posts/PostForm';
+import Posts from '../posts/Posts';
 
 const BlogShow = ({ location, match, deleteBlog, history }) => {
 const [editshow, setEditShow] = useState(false);
@@ -17,6 +20,9 @@ const handleEditShow = () => setEditShow(true);
       <Button variant="warning" onClick={() => handleEditShow()}>Edit</Button>
       {''}
       <Button variant="danger" onClick={() => deleteBlog(match.params.id, history)}>Delete</Button>
+      <Posts blogId={match.params.id} />
+      {/* <PostList blogId={location.state.id} /> */}
+      {/* <PostForm blogId={location.state.id} /> */}
       <Modal show={editshow} onHide={handleEditClose}>
         <Modal.Header closeButton>
           <Modal.Title>Blog Title: {location.state.title} Edit</Modal.Title>

@@ -10,6 +10,7 @@ import FetchUser from './components/auth/FetchUser';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import Blogs from './components/blogs/Blogs';
 import BlogShow from './components/blogs/BlogShow';
+import PostShow from './components/posts/PostShow';
 
 const App = () => (
   <>
@@ -23,6 +24,7 @@ const App = () => (
           <Route exact path="/register" component={Register} />
           <ProtectedRoute exact path="/blogs" component={Blogs} />
           <ProtectedRoute exact path="/blogs/:id" component={BlogShow} />
+          <ProtectedRoute exact path="/blogs/:blogId/posts/:id" component={PostShow} />
           <Route component={Nomatch} />
         </Switch>
       </Container>

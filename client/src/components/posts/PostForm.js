@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import { PostConsumer } from '../../providers/PostProvider';
-import { Form, Input } from 'react-bootstrap';
+import { Form, Button, Input } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 
-const PostForm = ({ addPost, id, title, body, author, updatePost, handleEditClose, match, history }) => {
+const PostForm = ({ addPost, blogId, id, title, body, author, updatePost, handleEditClose, match, history }) => {
   const [post, setPost] = useState({ title: "", body: "", author: "" })
   
   useEffect( () => {
     if(id) {
-      setDay({title, body, author})
+      setPost({title, body, author})
     }
   }, [])
 
@@ -19,7 +19,7 @@ const PostForm = ({ addPost, id, title, body, author, updatePost, handleEditClos
       updatePost(id, post, history)
       handleEditClose()
     } else {
-      addPost(post)
+      addPost(blogId, post, history)
     }
     setPost({ title: "", body: "", author: "" })
   }
