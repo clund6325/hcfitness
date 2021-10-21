@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { PostConsumer } from '../../providers/PostProvider';
-import { Form, Button, Input } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 
 const PostForm = ({ addPost, blogId, id, title, body, author, updatePost, handleEditClose, match, history }) => {
@@ -26,8 +26,8 @@ const PostForm = ({ addPost, blogId, id, title, body, author, updatePost, handle
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Form.Label>Title</Form.Label>
       <Form.Group controlId="FormBasicTitle">
+        <Form.Label>Title</Form.Label>
         <Form.Control
           type="text"
           placeholder="title"
@@ -36,8 +36,8 @@ const PostForm = ({ addPost, blogId, id, title, body, author, updatePost, handle
           onChange={(e) => setPost({...post, title: e.target.value})}
         />
         </Form.Group>
-        <Form.Label>Body</Form.Label>
         <Form.Group controlId="FormBasicBody">
+          <Form.Label>Body</Form.Label>
           <Form.Control
             type="text"
             placeholder="body"
@@ -46,8 +46,8 @@ const PostForm = ({ addPost, blogId, id, title, body, author, updatePost, handle
             onChange={(e) => setPost({...post, body: e.target.value})}
           />
         </Form.Group>
-        <Form.Label>Author</Form.Label>
         <Form.Group controlId="FormBasicAuthor">
+          <Form.Label>Author</Form.Label>
           <Form.Control
             type="text"
             placeholder="author"
