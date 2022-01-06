@@ -3,7 +3,7 @@ import { PostConsumer } from '../../providers/PostProvider';
 import { Form, Button } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 
-const PostForm = ({ addPost, blogId, id, title, body, author, updatePost, handleEditClose, match, history }) => {
+const PostForm = ({ addPost, blog_id, id, title, body, author, updatePost, handleEditClose, match, history }) => {
   const [post, setPost] = useState({ title: "", body: "", author: "" })
   
   useEffect( () => {
@@ -16,18 +16,18 @@ const PostForm = ({ addPost, blogId, id, title, body, author, updatePost, handle
     e.preventDefault()
     setPost({...post})
     if (id) {
-      updatePost(id, post, history)
+      updatePost( blog_id, id, post, history)
       handleEditClose()
     } else {
-      addPost(blogId, post, history)
+      addPost( blog_id, post)
     }
     setPost({ title: "", body: "", author: "" })
   }
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Form.Group controlId="FormBasicTitle">
         <Form.Label>Title</Form.Label>
+        <Form.Group controlId="formBasicTitle">
         <Form.Control
           type="text"
           placeholder="title"
@@ -36,8 +36,8 @@ const PostForm = ({ addPost, blogId, id, title, body, author, updatePost, handle
           onChange={(e) => setPost({...post, title: e.target.value})}
         />
         </Form.Group>
-        <Form.Group controlId="FormBasicBody">
           <Form.Label>Body</Form.Label>
+          <Form.Group controlId="formBasicBody">
           <Form.Control
             type="text"
             placeholder="body"
@@ -46,8 +46,8 @@ const PostForm = ({ addPost, blogId, id, title, body, author, updatePost, handle
             onChange={(e) => setPost({...post, body: e.target.value})}
           />
         </Form.Group>
-        <Form.Group controlId="FormBasicAuthor">
           <Form.Label>Author</Form.Label>
+          <Form.Group controlId="formBasicAuthor">
           <Form.Control
             type="text"
             placeholder="author"

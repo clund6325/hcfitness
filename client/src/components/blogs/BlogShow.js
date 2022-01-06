@@ -20,9 +20,9 @@ const handleEditShow = () => setEditShow(true);
       <Button variant="warning" onClick={() => handleEditShow()}>Edit</Button>
       {''}
       <Button variant="danger" onClick={() => deleteBlog(match.params.id, history)}>Delete</Button>
-      <Posts blogId={match.params.id} />
-      {/* <PostList blogId={location.state.id} /> */}
-      {/* <PostForm blogId={location.state.id} /> */}
+      {/* <Posts blogId={location.state.id} /> */}
+      <PostList blogId={location.state.id} />
+      <PostForm blogId={location.state.id} />
       <Modal show={editshow} onHide={handleEditClose}>
         <Modal.Header closeButton>
           <Modal.Title>Blog Title: {location.state.title} Edit</Modal.Title>

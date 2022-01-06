@@ -3,7 +3,7 @@ import { PostConsumer } from '../../providers/PostProvider';
 import  { Link } from 'react-router-dom';
 import { Card, ListGroup } from 'react-bootstrap';
 
-const PostList = ({ blogId, posts, getAllPosts }) => {
+const PostList = ({ blogId, posts, id, getAllPosts }) => {
   useEffect( () => {
     getAllPosts(blogId)
   }, [])

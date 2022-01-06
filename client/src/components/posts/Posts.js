@@ -3,15 +3,15 @@ import { PostConsumer } from '../../providers/PostProvider';
 import PostList from './PostList';
 import PostForm from './PostForm';
 
-const Posts = ({ getAllPosts, blogId, match, location, addPost }) => {
+const Posts = ({ getAllPosts, blogId, match, id, location, addPost }) => {
   useEffect( () => {
-    getAllPosts(blogId)
+    getAllPosts(blogId, id)
   }, [])
 
   return(
     <div>
-      <PostList blogId={blogId}/>
-      <PostForm blogId={blogId} addPost={addPost} />
+      <PostList blogId={match.params.blogId} id={match.paa} />
+      <PostForm blogId={match.params.blogId} />
     </div>
   )
 }
@@ -22,4 +22,4 @@ const ConnectedPosts = (props) => (
   </PostConsumer>
 )
 
-export default ConnectedPosts
+export default ConnectedPosts;
